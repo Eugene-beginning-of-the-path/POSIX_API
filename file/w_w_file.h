@@ -1,3 +1,3 @@
 #pragma once
 
-int file(int argN, const char* args[]);
+int fileChecking(int argN, const char* args[]); //Usage: exe <src> <dst>

@@ -17,7 +17,7 @@ struct MyStruct
     const char* str = "GigaChat";
 };
 
-int file(int argN, const char* args[])
+int fileChecking(int argN, const char* args[])
 {
     struct MyStruct ob{.str = "GPT"};
     std::cout << ob.a << '\t' << ob.str << std::endl;

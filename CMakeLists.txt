@@ -1,4 +1,4 @@
-#cmake -S . -B build -DENABLE_FILE=ON -DENABLE_PIPE=ON --log-level=DEBUG
+#cmake -S . -B build -DENABLE_FILE=ON -DENABLE_FORK=ON --log-level=DEBUG
 
 cmake_minimum_required(VERSION 3.22)
 set (CMAKE_CXX_STANDARD 17)
@@ -7,6 +7,7 @@ set (CMAKE_CXX_STANDARD_REQUIRED True)
 project(POSIX_API)
 
 option(ENABLE_FILE "build FILE example of POSIX API" OFF)
+option(ENABLE_FORK "build FORK example of POSIX API" OFF)
 option(ENABLE_PIPE "build PIPE example of POSIX API" OFF)
 
 set(SOURCE_LIST main.cpp)
@@ -18,6 +19,13 @@ if (ENABLE_FILE)
     list(APPEND INCLUDE_LIST ${CMAKE_SOURCE_DIR}/file)
     
     list(APPEND MACROSES_DEFINE ENABLE_FILE)
+endif()
+
+if (ENABLE_FORK)
+    list(APPEND SOURCE_LIST fork/w_w_fork.cpp)
+    list(APPEND INCLUDE_LIST ${CMAKE_SOURCE_DIR}/fork)
+
+    list(APPEND MACROSES_DEFINE ENABLE_FORK)
 endif()
 
 if (ENABLE_PIPE)
